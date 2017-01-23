@@ -1,0 +1,8 @@
+<h1>Home Page</h1>
+
+<% if @current_user.present? %>
+  <span><%= "Welcome #{ @current_user.email}" %></span>
+  <% else %>
+  <%= link_to "Please Sign in", new_user_path %>
+  <%= link_to "Sign up!", new_user_path %>
+<% end %>
