@@ -1,0 +1,5 @@
+<h2>Edit Post</h2>
+
+<%= render :partial => 'form' %>
+
+<%= button_to "Delete post", post_path(@post.id), :method => "delete", :data => { :confirm => "Are you sure?" }, :class => 'btn btn-danger' %>

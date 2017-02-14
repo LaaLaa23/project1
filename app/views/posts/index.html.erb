@@ -1,0 +1,14 @@
+<h2>Posts Index</h2>
+<% @posts.each do |post| %>
+  <h3><%= post.title %></h3>
+  <h4><%= post.description %></h4>
+  <p><%= post.user.name %></p>
+  <%= cl_image_tag(post.image_url) if post.image_url.present? %><br>
+  <p><%= post.body %></p>
+  <%= button_to "Show", post_path(post), :method => 'get' %>
+
+  <!-- admin only -->
+  <% if @current_user.admin? %>
+  <%= button_to "Delete post", post_path(post.id), :method => "delete", :data => { :confirm => "Are you sure?" }, :class => 'btn btn-danger' %>
+  <% end %>
+<% end %>

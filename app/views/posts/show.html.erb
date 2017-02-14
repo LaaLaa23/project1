@@ -1,0 +1,16 @@
+<h2><%= @post.title %></h2>
+<h4><%= @post.description %></h4>
+<p><%= @post.user.name %></p>
+<%= cl_image_tag(@post.image_url) if @post.image_url.present? %><br>
+<p><%= @post.body %></p>
+
+<% if @post.user == @current_user %>
+<%= button_to "Edit post", edit_post_path(@post.id), :method => 'get', :class => 'btn btn-default' %>
+<%= button_to "Delete post", post_path(@post.id), :method => "delete", :data => { :confirm => "Are you sure?" }, :class => 'btn btn-danger' %>
+<% end %>
+
+<% if @post.comments.any? %>
+  <%= render 'comments/comments' %>
+<% end %>
+
+<%= button_to "Comment", new_post_comment_path(@post), :class => "btn btn-primary", :method => 'get'%>

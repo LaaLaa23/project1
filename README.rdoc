@@ -1,28 +1,33 @@
-== README
+GA Week 6 Project 1
+ImSoVain
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+About
+Simple skeletal blog
 
-Things you may want to cover:
+Features
+User can sign up, sign in, update and delete accounts.
+From a logged in user you can create a post and update and delete.
+And commenting on posts.
 
-* Ruby version
+Built With
+Rails 4.2.7.1
+Ruby 2.2.6
 
-* System dependencies
+Libraries, plugins and APIs
+jQuery
+Cloudinary (files upload, remote storage)
+Bootstrap
 
-* Configuration
+GEMS
+Rails 12 Factor (Heroku deployment)
+cloudinary
+bootstrap-sass
+Bcrypt (authentication)
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+Known Issues
+Many... actually everything... this is a first attempt from a very inexperienced and stubborn person who refuses to ask for help for the sake of others in the class who are actually needing to find a job after this course
+Bootstrap stuff
+Responsive layout
+Following Users
+Liking
+Hell, just go crazy - more images, videos, audio, maps... basically just take this template of a site and apply it to something actually interesting.

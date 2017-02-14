@@ -2,36 +2,64 @@
 <html>
 <head>
   <title>Project1</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
+  <%= javascript_include_tag 'application' %>
+  <%= cloudinary_js_config %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="container">
 
   <nav>
-
     <%= link_to "Home", root_path %>
+    ||
     <% if @current_user.present? %>
       <% if @current_user.admin? %>
       <%= link_to "All Users", users_path %>
       <% end %>
-    <%= link_to "Edit User", users_edit_path %>
-    <%= link_to "Logout #{ @current_user.email}", login_path, :method => 'delete' %>
-    <% else %>
+      <%= link_to "All Posts", posts_path %>
+      |
+      <%= link_to "New Post", new_post_path %>
+      |
+      <%= link_to "Your Posts", user_posts_path(@current_user) %>
+      ||
+      <%= link_to "Edit Account", users_edit_path %>
+      |
+      <%= link_to "Logout #{ @current_user.email}", login_path, :method => 'delete' %>
+      <% else %>
       <%= link_to "Sign Up", new_user_path %>
+      |
       <%= link_to "Sign In", login_path %>
     <% end %>
-
-
   </nav>
 
-    <% if @current_user.present? %>
-    <%= link_to "Sign Up", new_user_path %>
+  <%= yield %>
+
+  <div>
+  <% unless @current_user.present? %>
+    <p>Welcome to ImSoVain! The amazingly shite site to post a bite about yourself. Apparently you have to be logged in to see anything more... so it's a bit of a mystery :)</p>
+    <p><strong>Preview</strong> of the beautiful site within:</p>
+    <img src="assets/beautifulblog.png" alt="Preview of Beautiful Blog" style="width: 100%; height:auto;"><br>
+    <br>
+    <h6>...or not... apologies the lovely people at "helpscout"   for the clear attempt at plagiarism.</h6>
     <% end %>
+  </div>
+</div>
 
+<div class="footer-wrapper">
+  <span class="footbar"><a href="https://generalassemb.ly/locations/sydney" target="_blank"><img src="assets/GA-logo.png" class="inline" alt="Website"></a></span>
+  <span class="footbar"><a href="mailto:sydney@generalassemb.ly" target="_top"><img src="assets/envelope.png" class="inline" alt="Email"></a></span>
+  <span class="footbar"><a href="https://www.facebook.com/GeneralAssemblySydney" target="_blank"><img src="assets/facebook.png" class="inline" alt="Facebook"></a></span>
+  <span class="footbar"><a href="https://twitter.com/SydneyGA" target="_blank"><img src="assets/twitter.png" class="inline" alt="Twitter"></a></span>
+  <span class="footbar"><a href="https://www.linkedin.com/company/general-assemb-ly" target="_blank"><img src="assets/linkedin.png" class="inline" alt="LinkedIn"></a></span>
+  <span class="footbar"><a href="https://www.instagram.com/ga_sydney/" target="_blank"><img src="assets/instagram.png" class="inline" alt="Instagram"></a></span>
+  <span class="footbar"><a href="https://plus.google.com/101861634694433078681" target="_blank"><img src="assets/google-plus.png" class="inline" alt="Google+"></a></span>
+  <span class="footbar"><a href="http://www.youtube.com/user/gnrlassembly" target="_blank"><img src="assets/youtube.png" class="inline" alt="YouTube"></a></span>
+</div>
 
-
-<%= yield %>
-
+</div>
 </body>
 </html>
+
+<!-- <div>Navbar icons made by <a href="http://www.flaticon.com/authors/madebyoliver" title="Madebyoliver">Madebyoliver</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
+<!-- <div>Navbar icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
